@@ -115,11 +115,12 @@ body {
   display: flex;
   flex-direction: row;
   align-items: top;
+  justify-content: space-between;
 }
 
 .patch {
   display: block;
-  height: 20px;
+  height: 22px;
   width: 16px;
   flex-shrink: 0;
 }
@@ -156,17 +157,16 @@ body {
   background-color: var(--grey);
 }
 
-.hspace {
-  display: block;
-  height: auto;
-  width: 100%;
-}
-
 .name {
   margin: 0;
   font-size: 12pt;
   white-space: nowrap;
   font-weight: 400;
+}
+
+.patches {
+  display: flex;
+  flex-direction: row;
 }
 
 .tagline {
@@ -176,11 +176,13 @@ body {
 
 .gh-link {
   float: right;
-  font-size: 11pt;
+  margin-top: 4px;
 }
 
 .info {
   color: var(--light-1);
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .info h1 {
@@ -202,6 +204,8 @@ body {
 
 .mono {
   font-family: monospace;
+  font-size: 10pt;
+  font-weight: normal;
 }
 
 a, a:visited {
@@ -214,6 +218,38 @@ a:hover {
   color: var(--bright-blue);
 }
 
+a.pdf, a.pdf:visited {
+  color: var(--purple);
+}
+
+a.pdf:hover {
+  color: var(--bright-purple);
+}
+
+a.slides, a.slides:visited {
+  color: var(--purple);
+}
+
+a.slides:hover {
+  color: var(--bright-purple);
+}
+
+a.video, a.video:visited {
+  color: var(--green);
+}
+
+a.video:hover {
+  color: var(--bright-green);
+}
+
+a.bibtex, a.bibtex:visited {
+  color: var(--yellow);
+}
+
+a.bibtex:hover {
+  color: var(--bright-yellow);
+}
+
 .info .copyright {
   font-size: 8pt;
   font-weight: 100;
@@ -222,12 +258,29 @@ a:hover {
 .item {
   margin-top: 8px;
   margin-bottom: 8px;
+  background-color: #3A3B3C;
+  padding: 8px;
+  border-radius: 4px;
 }
 
 .item .who {
   font-weight: 100;
   font-size: 10pt;
   font-style: italic;
+}
+
+.item .title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.item .title .links {
+  margin-top: 4px;
+  white-space: nowrap;
 }
 
 .item p {
