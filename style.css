@@ -60,7 +60,7 @@ body {
   display: flex;
   align-items: top;
   justify-content: flex-start;
-  gap: 64px;
+  gap: 48px;
 }
 
 .profile {
@@ -218,38 +218,6 @@ a:hover {
   color: var(--bright-blue);
 }
 
-a.pdf, a.pdf:visited {
-  color: var(--purple);
-}
-
-a.pdf:hover {
-  color: var(--bright-purple);
-}
-
-a.slides, a.slides:visited {
-  color: var(--purple);
-}
-
-a.slides:hover {
-  color: var(--bright-purple);
-}
-
-a.video, a.video:visited {
-  color: var(--green);
-}
-
-a.video:hover {
-  color: var(--bright-green);
-}
-
-a.bibtex, a.bibtex:visited {
-  color: var(--yellow);
-}
-
-a.bibtex:hover {
-  color: var(--bright-yellow);
-}
-
 .info .copyright {
   font-size: 8pt;
   font-weight: 100;
@@ -261,6 +229,12 @@ a.bibtex:hover {
   background-color: #3A3B3C;
   padding: 8px;
   border-radius: 4px;
+  transition: background-color 200ms, filter 200ms;
+}
+
+.item:hover {
+  filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
+  background-color: #454647;
 }
 
 .item .who {
