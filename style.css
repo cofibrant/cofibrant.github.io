@@ -29,8 +29,16 @@
   --light-3: #a8acb6;
   --light-4: #8f9fa1;
 
+  --background: #343536;
+
+  --profile-base: 300px;
+  --profile-width: calc(var(--profile-base) + 16px);
+  --profile-height: 400px;
+  --content-width: 900px;
+  --content-gap: 80px;
+
   font-family: "M PLUS Rounded 1c", sans-serif;
-  background-color: #343536;
+  background-color: var(--background);
 }
 
 h1, h2, p {
@@ -47,37 +55,59 @@ body {
   overflow-x: hidden;
 }
 
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(50% + var(--profile-width) - 0.5 * (var(--content-width) - var(--content-gap)));
+  height: 100vh;
+  background-image: url("background.jpeg");
+  background-size: cover;
+  background-position: center;
+  z-index: -10;
+}
+
+.background:after {
+  content: '';
+  width: 400px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(90deg,rgba(255,255,255,0),var(--background));
+}
+
 .content {
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  min-height: 400px;
-  max-width: 900px;
+  min-height: var(--profile-height);
+  max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
   margin-bottom: 80px;
   display: flex;
   align-items: top;
   justify-content: flex-start;
-  gap: 48px;
+  gap: var(--content-gap);
 }
 
 .profile {
   box-sizing: border-box;
   padding: 8px;
-  width: 316px;
-  height: 400px;
+  width: var(--profile-width);
+  height: var(--profile-height);
   border-radius: 4px;
   background-color: var(--light-1);
   flex-shrink: 0;
   clip-path: inset(0 0 0 0);
+  margin-top: 200px;
 }
 
 .profile .layer {
   width: 100vw;
-  height: 500px;
-  top: 0px;
+  height: calc(300px + var(--profile-height));
+  top: 0;
   left: 0px;
   pointer-events: none;
   position: fixed;
@@ -98,8 +128,8 @@ body {
 }
 
 .profile .avatar {
-  width: 300px;
-  height: 300px;
+  width: var(--profile-base);
+  height: var(--profile-base);
 
   box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.25) inset;
   -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.25) inset;
@@ -111,7 +141,7 @@ body {
 }
 
 .swatch {
-  width: 300px;
+  width: var(--profile-base);
   display: flex;
   flex-direction: row;
   align-items: top;
@@ -183,6 +213,7 @@ body {
   color: var(--light-1);
   flex: 1 1 auto;
   min-width: 0;
+  padding-top: 80px;
 }
 
 .info h1 {
@@ -262,15 +293,33 @@ a:hover {
 }
 
 @media only screen and (max-width: 1024px) {
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 550px;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .background:after {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(180deg,rgba(255,255,255,0),var(--background));
+  }
+
   .content {
     flex-direction: column;
     align-items: center;
     padding-left: 30px;
     padding-right: 30px;
+    gap: 40px;
   }
 
   .info {
     max-width: 600px;
+    padding-top: 0px;
   }
 
   .profile .layer.specular {
