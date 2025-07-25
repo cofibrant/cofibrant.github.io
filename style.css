@@ -37,6 +37,8 @@
   --content-width: 900px;
   --content-gap: 80px;
 
+  --scroll-top: 0;
+
   font-family: "M PLUS Rounded 1c", sans-serif;
   background-color: var(--background);
 }
@@ -294,11 +296,10 @@ a:hover {
 
 @media only screen and (max-width: 1024px) {
   .background {
-    position: absolute;
     width: 100%;
-    height: 550px;
+    height: var(--profile-height);
     background-position: center;
-    background-attachment: fixed;
+    opacity: calc(1 - (var(--scroll-top) / 500));
   }
 
   .background:after {
@@ -306,7 +307,7 @@ a:hover {
     height: 100%;
     bottom: 0;
     left: 0;
-    background-image: linear-gradient(180deg,rgba(255,255,255,0),var(--background));
+    background-image: linear-gradient(180deg, rgba(255,255,255,0), var(--background));
   }
 
   .content {
